@@ -49,6 +49,7 @@ resource "google_project_iam_member" "custom_service_account_dataform_editor" {
 
 # Atribuição de papel para o Cloud Functions (necessário para invocar funções)
 resource "google_project_iam_member" "custom_service_account_cloudfunctions_invoker" {
+
   provider = google-beta
   project  = var.PROJECT
   member   = "serviceAccount:${google_service_account.custom_service_account.email}"

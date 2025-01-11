@@ -11,6 +11,7 @@ Este projeto utiliza o Terraform para provisionar recursos na Google Cloud Platf
 Esta versão do Terraform exige que sejam criados 2 bucket manualmente
  > cs-dataplex-experience-6133-us-east1-composer 
  > cs-dataplex-experience-6133-us-east1-terraform
+E importante ler o README e configurar o arquivo variable.tf
 
 # Arquivo principal (main.tf)
 
@@ -62,6 +63,8 @@ variable "REGION" {
 terraform init
 terraform init -migrate-state "no pirmeiro init para ativar o beckend.tf"
 terraform plan
+terraform validade
+terraform fmt
 terraform apply
 terraform destroy
 

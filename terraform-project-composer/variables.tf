@@ -1,5 +1,7 @@
 # Arquivo onde as variáveis são declaradas.
 
+# Alterar manualmente as variaveis no arquivo backend.tf e criar os bucket para as DAGs e terraform manualmente
+
 variable "PROJECT" {
   description = "O projeto onde os recursos serão criados"
   type        = string
