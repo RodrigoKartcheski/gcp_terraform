@@ -3,7 +3,7 @@
 variable "PROJECT" {
   description = "O projeto onde os recursos serão criados"
   type        = string
-  default     = "my-project" # Valor padrão se não for especificado
+  default     = "dataplex-experience-6133" //"my-project" # Valor padrão se não for especificado
 }
 
 variable "REGION" {
@@ -31,10 +31,10 @@ variable "COMPOSER_SA_ID" {
   default     = "44823525"
 }
 
-variable "BUCKET_OBJECT_DAGS_PREFIX" {
+variable "BUCKET_OBJECT_PREFIX" {
   description = "Nome do bucket para o Cloud Composer (DAGs e consultas)"
   type        = string
-  default     = "cs_"
+  default     = "cs"
 }
 
 # Programador (Scheduler)

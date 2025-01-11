@@ -7,6 +7,11 @@ Este projeto utiliza o Terraform para provisionar recursos na Google Cloud Platf
 ├── README.md      # Documentação do projeto
 └── outputs.tf     # Arquivo de saídas do Terraform
 
+# Antes de começar
+Esta versão do Terraform exige que sejam criados 2 bucket manualmente
+ > cs-dataplex-experience-6133-us-east1-composer 
+ > cs-dataplex-experience-6133-us-east1-terraform
+
 # Arquivo principal (main.tf)
 
 ## 1. Definição dos Providers
@@ -55,6 +60,7 @@ variable "REGION" {
 
 # Como Executar
 terraform init
+terraform init -migrate-state "no pirmeiro init para ativar o beckend.tf"
 terraform plan
 terraform apply
 terraform destroy

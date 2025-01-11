@@ -73,7 +73,7 @@ resource "google_composer_environment" "composer_environment" {
   name     = var.COMPOSER_NAME
 
   storage_config {
-    bucket = "cs_elet_dados_compulsorio_dev_us_east1_composer" //"${var.BUCKET_OBJECT_DAGS_PREFIX}-${var.PROJECT}-${var.REGION}_composer"
+    bucket = "${var.BUCKET_OBJECT_PREFIX}-${var.PROJECT}-${var.REGION}-composer" // ex cs-my-project-us-east1-composer
   }
 
   config {
