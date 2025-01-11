@@ -1,0 +1,1 @@
+# Arquivo onde os valores das variáveis são atribuídos.
