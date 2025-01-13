@@ -3,40 +3,71 @@
 # Alterar manualmente as variaveis no arquivo backend.tf e criar os bucket para as DAGs e terraform manualmente
 
 variable "PROJECT" {
+  # O projeto GCP
   description = "O projeto onde os recursos serão criados"
   type        = string
-  default     = "dataplex-experience-6133" //"my-project" # Valor padrão se não for especificado
 }
 
 variable "REGION" {
+  # A região do projeto GCP
   description = "A região onde os recursos serão criados"
   type        = string
-  default     = "us-east1" # Valor padrão se não for especificado
 }
 
 variable "ZONE" {
+  # A zona da região do projeto GCP
   description = "A zona específica para os recursos"
   type        = string
-  default     = "us-east1-a"
+}
+
+variable "GIT_COMMITISH" {
+  type    = string
+}
+
+variable "RP_COMPULSORIO_TRUSTED_ANALISE_PROVISAO" {
+  # O repositorio do dataform camada Trusted nas variaveis do Composer 
+  type    = string
+}
+
+variable "WS_COMPULSORIO_TRUSTED_ANALISE_PROVISAO" {
+  # O Workspace do repositorio do dataform camada Trusted nas variaveis do Composer 
+  type    = string
+}
+
+variable "RP_COMPULSORIO_REFINED_ANALISE_PROVISAO" {
+  # O repositorio do dataform camada Refined nas variaveis do Composer 
+  type    = string
+}
+
+variable "WS_COMPULSORIO_REFINED_ANALISE_PROVISAO" {
+  # O Workspace do repositorio do dataform camada Refined nas variaveis do Composer 
+  type    = string
+}
+
+variable "DS_COMPULSORIO_RAW_ANALISE_PROVISAO" {
+  # O Dataset do bigquery usado para monitorar atualização especifica do Composer 
+  type    = string
+}
+
+variable "TB_MODIFIED_COMPULSORIO_RAW_ANALISE_PROVISAO" {
+  # A tabela do Dataset do bigquery usado para monitorar atualização especifica do Composer
+  type    = string
 }
 
 variable "COMPOSER_NAME" {
   description = "O nome do ambiente do composer"
   type        = string
-  default     = "cc-my-project-dev" # 
 }
 
 // em desuso
 variable "COMPOSER_SA_ID" {
   description = "Nome do service account do Composer"
   type        = string
-  default     = "44823525"
 }
 
 variable "BUCKET_OBJECT_PREFIX" {
   description = "Nome do bucket para o Cloud Composer (DAGs e consultas)"
   type        = string
-  default     = "cs"
 }
 
 # Programador (Scheduler)

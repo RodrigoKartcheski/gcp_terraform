@@ -111,13 +111,15 @@ resource "google_composer_environment" "composer_environment" {
       image_version = "composer-3-airflow-2.9.3-build.3"
 
     env_variables = {
-        GIT_COMMITISH = "main"
-        PROJ_ID = "elet-dados-compulsorio-dev"
-        REGION = "us-east1"
-        RP_COMPULSORIO_TRUSTED_ANALISE_PROVISAO = "df_elet_compulsorio_trusted_analise_provisao"
-        WS_COMPULSORIO_TRUSTED_ANALISE_PROVISAO = "ws_elet_compulsorio_trusted"
-        DS_COMPULSORIO_RAW_ANALISE_PROVISAO = "ds_elet_compulsorio_raw_analise_provisao"
-        TB_MODIFIED_COMPULSORIO_RAW_ANALISE_PROVISAO = "teste_it"
+        GIT_COMMITISH = var.GIT_COMMITISH
+        PROJ_ID = var.PROJECT
+        REGION = var.REGION
+        RP_COMPULSORIO_TRUSTED_ANALISE_PROVISAO = var.RP_COMPULSORIO_TRUSTED_ANALISE_PROVISAO
+        WS_COMPULSORIO_TRUSTED_ANALISE_PROVISAO = var.WS_COMPULSORIO_TRUSTED_ANALISE_PROVISAO
+        RP_COMPULSORIO_REFINED_ANALISE_PROVISAO = var.RP_COMPULSORIO_REFINED_ANALISE_PROVISAO
+        WS_COMPULSORIO_REFINED_ANALISE_PROVISAO = var.WS_COMPULSORIO_REFINED_ANALISE_PROVISAO
+        DS_COMPULSORIO_RAW_ANALISE_PROVISAO = var.DS_COMPULSORIO_RAW_ANALISE_PROVISAO
+        TB_MODIFIED_COMPULSORIO_RAW_ANALISE_PROVISAO = var.TB_MODIFIED_COMPULSORIO_RAW_ANALISE_PROVISAO
       }
 
       # Adicionando o pacote PyPI para o Cloud Composer

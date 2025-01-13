@@ -12,6 +12,7 @@ Esta versão do Terraform exige que sejam criados 2 bucket manualmente
  > cs-dataplex-experience-6133-us-east1-composer 
  > cs-dataplex-experience-6133-us-east1-terraform
 E importante ler o README e configurar o arquivo variable.tf
+Recomendado deixar as variaveis que os usuarios pode editar no arquivo .tvars e as outras variaveis deixar setadas no arquivo variable.tf
 
 # Arquivo principal (main.tf)
 
