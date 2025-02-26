@@ -24,33 +24,13 @@ variable "GIT_COMMITISH" {
   type    = string
 }
 
-variable "RP_COMPULSORIO_TRUSTED_ANALISE_PROVISAO" {
+variable "REPOSITORIO" {
   # O repositorio do dataform camada Trusted nas variaveis do Composer 
   type    = string
 }
 
-variable "WS_COMPULSORIO_TRUSTED_ANALISE_PROVISAO" {
+variable "WORKSPACE" {
   # O Workspace do repositorio do dataform camada Trusted nas variaveis do Composer 
-  type    = string
-}
-
-variable "RP_COMPULSORIO_REFINED_ANALISE_PROVISAO" {
-  # O repositorio do dataform camada Refined nas variaveis do Composer 
-  type    = string
-}
-
-variable "WS_COMPULSORIO_REFINED_ANALISE_PROVISAO" {
-  # O Workspace do repositorio do dataform camada Refined nas variaveis do Composer 
-  type    = string
-}
-
-variable "DS_COMPULSORIO_RAW_ANALISE_PROVISAO" {
-  # O Dataset do bigquery usado para monitorar atualização especifica do Composer 
-  type    = string
-}
-
-variable "TB_MODIFIED_COMPULSORIO_RAW_ANALISE_PROVISAO" {
-  # A tabela do Dataset do bigquery usado para monitorar atualização especifica do Composer
   type    = string
 }
 
