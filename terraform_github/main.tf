@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "github" {
-  token = "xxxxx"
+  token = "xxxxxx"
 }
 
 #################################
