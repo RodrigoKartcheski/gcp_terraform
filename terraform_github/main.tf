@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "github" {
-  token = "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"
+  token = "xxxxx"
 }
 
 #################################
@@ -61,7 +61,7 @@ resource "github_repository_file" "ci_cd_yaml" {
 variable "github_token" {
   description = "Token de autenticação do GitHub"
   type        = string
-  default     = "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"
+  default     = "xxxx"
   sensitive   = true
 }
 
