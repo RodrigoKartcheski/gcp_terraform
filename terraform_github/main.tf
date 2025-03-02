@@ -8,7 +8,11 @@ terraform {
 }
 
 provider "github" {
+<<<<<<< HEAD
   token = "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"
+=======
+  token = "xxxxxx"
+>>>>>>> e4c3deb3af469d0444d19c177a26e3d4bc7f67e7
 }
 
 #################################
@@ -22,10 +26,13 @@ resource "github_repository" "example" {
 resource "github_branch" "development" {
   repository = "example"
   branch     = "development"
+<<<<<<< HEAD
   
   depends_on = [
     github_repository.example
   ]
+=======
+>>>>>>> e4c3deb3af469d0444d19c177a26e3d4bc7f67e7
 }
 
 resource "github_repository_file" "READEME" {
@@ -40,10 +47,13 @@ resource "github_repository_file" "gitignore" {
   repository = "example"
   file       = ".gitignore"
   content    = "**/*.tfstate"
+<<<<<<< HEAD
   
   depends_on = [
     github_repository.example
   ]
+=======
+>>>>>>> e4c3deb3af469d0444d19c177a26e3d4bc7f67e7
 }
 
 #################################
@@ -69,7 +79,11 @@ resource "github_repository_file" "ci_cd_yaml" {
 variable "github_token" {
   description = "Token de autenticação do GitHub"
   type        = string
+<<<<<<< HEAD
   default     = "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"
+=======
+  default     = "xxxx"
+>>>>>>> e4c3deb3af469d0444d19c177a26e3d4bc7f67e7
   sensitive   = true
 }
 
