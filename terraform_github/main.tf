@@ -8,35 +8,19 @@ terraform {
 }
 
 provider "github" {
-<<<<<<< HEAD
-  token = "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"
-=======
-  token = "xxxxxx"
->>>>>>> e4c3deb3af469d0444d19c177a26e3d4bc7f67e7
+  token = var.TOKEN  # Referencia a variável definida em terraform.tfvars
 }
 
 #################################
 # passo 1 - criar o repositorio 
-resource "github_repository" "example" {
-  name        = "example"
+resource "github_repository" "dataform_pipeline" {
+  name        = "dataform_terraform"
   description = "Minha incrível base de código"
   visibility  = "public"
 }
 
-resource "github_branch" "development" {
-  repository = "example"
-  branch     = "development"
-<<<<<<< HEAD
-  
-  depends_on = [
-    github_repository.example
-  ]
-=======
->>>>>>> e4c3deb3af469d0444d19c177a26e3d4bc7f67e7
-}
-
 resource "github_repository_file" "READEME" {
-  repository = "example"
+    repository = github_repository.dataform_pipeline.name  # Referenciando o nome do repositório
   file       = "README"
   content    = "**/*.tfstate"
 }
@@ -44,16 +28,13 @@ resource "github_repository_file" "READEME" {
 #################################
 # passo 2 - criar o arquivo .gitignore
 resource "github_repository_file" "gitignore" {
-  repository = "example"
+  repository = github_repository.dataform_pipeline.name  # Referenciando o nome do repositório
   file       = ".gitignore"
   content    = "**/*.tfstate"
-<<<<<<< HEAD
-  
+
   depends_on = [
-    github_repository.example
+    github_repository.dataform_pipeline  # Garantindo a ordem de criação
   ]
-=======
->>>>>>> e4c3deb3af469d0444d19c177a26e3d4bc7f67e7
 }
 
 #################################
@@ -67,24 +48,37 @@ data "local_file" "ci_cd_yaml" {
 #################################
 # Subir o arquivo ci-cd.yaml para o repositório GitHub
 resource "github_repository_file" "ci_cd_yaml" {
-  repository          = github_repository.example.name
+  repository          = github_repository.dataform_pipeline.name  # Referenciando o nome do repositório
   branch              = "main"
   commit_message      = "[CI/CD] Adicionando arquivo ci-cd.yaml"
   overwrite_on_create = true
   file                = ".github/workflows/ci-cd.yaml"  # Caminho do arquivo no repositório GitHub
   content             = data.local_file.ci_cd_yaml.content
+  
+  depends_on = [
+    github_repository.dataform_pipeline,  # Garantindo a ordem de criação
+    github_repository_file.READEME
+  ]
+  
 }
 
 #################################
-variable "github_token" {
-  description = "Token de autenticação do GitHub"
-  type        = string
-<<<<<<< HEAD
-  default     = "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"
-=======
-  default     = "xxxx"
->>>>>>> e4c3deb3af469d0444d19c177a26e3d4bc7f67e7
-  sensitive   = true
+resource "github_branch" "development" {
+  repository = github_repository.dataform_pipeline.name  # Referenciando o nome do repositório
+  branch     = "development"
+
+  depends_on = [
+    github_repository.dataform_pipeline,  # Garantindo a ordem de criação
+    github_repository_file.READEME
+  ]
 }
+
+#################################
+#variable "github_token" {
+#  description = "Token de autenticação do GitHub"
+#  type        = string
+
+#  sensitive   = true
+#}
 
 # https://registry.terraform.io/providers/hashicorp/github/3.0.0/docs/resources/repository_file

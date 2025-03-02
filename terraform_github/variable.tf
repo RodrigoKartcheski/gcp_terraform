@@ -1,4 +1,4 @@
-variable "github_token" {
+variable "TOKEN" {
   description = "Token de autenticação do GitHub"
   type        = string
 
