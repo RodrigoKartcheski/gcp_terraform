@@ -7,9 +7,6 @@ terraform {
   }
 }
 
-provider "github" {
-  token = "xxxxxx"
-}
 
 #################################
 # passo 1 - criar o repositorio 
