@@ -57,11 +57,6 @@ resource "github_repository_file" "ci_cd_yaml" {
   content             = data.local_file.ci_cd_yaml.content
 }
 
-#################################
-variable "github_token" {
-  description = "Token de autenticação do GitHub"
-  type        = string
-  sensitive   = true
-}
+
 
 # https://registry.terraform.io/providers/hashicorp/github/3.0.0/docs/resources/repository_file
