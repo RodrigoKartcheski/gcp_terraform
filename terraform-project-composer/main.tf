@@ -1,4 +1,4 @@
-# Arquivo principal do Terraform onde você define recursos, providers, etc.
+# Arquivo principal do Terraform onde  definimos recursos, providers, etc.
 
 terraform {
   required_providers {
