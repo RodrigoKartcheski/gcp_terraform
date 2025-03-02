@@ -61,7 +61,6 @@ resource "github_repository_file" "ci_cd_yaml" {
 variable "github_token" {
   description = "Token de autenticação do GitHub"
   type        = string
-  default     = "xxxx"
   sensitive   = true
 }
 
