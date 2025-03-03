@@ -1,1 +1,34 @@
-#! nano
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - ws_teste  # Quando houver um push na branch ws_teste, o pipeline será acionado
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Garante que todo o histórico está disponível
+
+      - name: Merge ws_teste into development
+        run: |
+          # Configura o repositório e as credenciais para o git
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          
+          # Faz checkout da branch de destino (development)
+          git checkout development
+
+          # Atualiza a branch de destino (development) com as últimas mudanças do remoto
+          git pull origin development
+
+          # Faz o merge da branch ws_teste para a development
+          git merge origin/ws_teste --no-ff -m "Merge ws_teste into development"
+
+          # Empurra as mudanças para o repositório remoto
+          git push origin development
